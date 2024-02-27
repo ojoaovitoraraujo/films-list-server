@@ -18,6 +18,11 @@ function getFilmById(id: number): Promise<Films | undefined> {
     // };
     // return filmsRepository.findOne(options)
 }
+
+function getFavoriteFilms(): Promise<Films[]> {
+    return filmsRepository.find({ where: { favorite: true }})
+}
+
 function createFilm(film: IFilm) {
     try{
         filmsRepository.save(film)
@@ -53,6 +58,7 @@ export {
     getFilmById,
     createFilm,
     updateFilm,
-    removeFilm
+    removeFilm,
+    getFavoriteFilms
 }
 

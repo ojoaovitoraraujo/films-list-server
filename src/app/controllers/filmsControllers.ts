@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getAllFilms, createFilm, getFilmById, updateFilm, removeFilm } from "../repositories/filmRepository";
+import { getAllFilms, createFilm, getFilmById, updateFilm, removeFilm, getFavoriteFilms } from "../repositories/filmRepository";
 
 async function getFilms(req: Request, res: Response): Promise<Response> {
     try {
@@ -15,6 +15,16 @@ async function getFilm(req: Request, res: Response): Promise<Response> {
         const { id } = req.params;
         const film = await getFilmById(parseInt(id));
         return res.json(film);
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+}
+
+async function getFavorites(req: Request, res: Response): Promise<Response> {
+    try {
+        console.log(req.params)
+        const favoriteFilms = await getFavoriteFilms();
+        return res.json(favoriteFilms);
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
@@ -53,5 +63,6 @@ export {
     getFilm,
     postFilm,
     putFilm,
-    deleteFilm
+    deleteFilm,
+    getFavorites
 };

@@ -1,16 +1,15 @@
 import { Router } from "express";
 import { getFilms, postFilm, getFilm, deleteFilm, putFilm } from "../controllers/filmsControllers";
+const filmsRouter = Router();
 
-const router = Router();
+filmsRouter.get('/', getFilms);
 
-router.get('/', getFilms);
+filmsRouter.get('/:id', getFilm);
 
-router.get('/:id', getFilm);
+filmsRouter.post('/', postFilm);
 
-router.post('/', postFilm);
+filmsRouter.put('/', putFilm);
 
-router.put('/', putFilm);
+filmsRouter.delete('/:id', deleteFilm);
 
-router.delete('/:id', deleteFilm);
-
-export default router;
+export default filmsRouter;
