@@ -1,7 +1,6 @@
 {
    "compilerOptions": {
       "lib": [
-         "es5",
          "es6"
       ],
       "target": "es6",
@@ -11,6 +10,7 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "esModuleInterop": true,
-      "sourceMap": true
+      "sourceMap": true,
+      "allowSyntheticDefaultImports": true
    }
 }
