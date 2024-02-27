@@ -8,7 +8,7 @@ export class  Films{
     @Column('varchar', {length: 100, nullable: true})
     name: string;
 
-    @Column('varchar', {length: 100, nullable: true})
+    @Column('varchar', {length: 1000, nullable: true})
     image?: string;
     
     @Column('varchar', {length: 1000, nullable: true})
