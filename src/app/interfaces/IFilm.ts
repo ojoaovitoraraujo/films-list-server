@@ -1,5 +1,5 @@
 interface IFilm {
-    id: number;
+    id?: number;
     name: string;
     image?: string;
     description?: string;
@@ -7,7 +7,7 @@ interface IFilm {
     genre?: string;
     director?: string;
     avaliation?: number;
-    favorite: boolean;
+    favorite?: boolean;
 }
 
 export default IFilm;
